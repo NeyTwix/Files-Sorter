@@ -2,7 +2,8 @@
 
 Files-Sorter est un outil pour organiser et trier vos fichiers automatiquement.
 
-> **Note :** Ce projet ne fonctionne pour le moment que sur Windows et n'a été testé qu'avec Python 3.13.
+> [!WARNING]
+> Ce projet ne fonctionne pour le moment que sur Windows et n'a été testé qu'avec Python 3.13.
 
 ## Fonctionnalités ✨
 
