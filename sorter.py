@@ -69,14 +69,14 @@ if not os.path.exists(DL_PATH):
     print(f"{col.Fore.WHITE}{col.Back.RED}[!] Path {DL_PATH} does not exist.{col.Style.RESET_ALL}")
     sys.exit(1)
 
-fold_names=["Images","Docs","Vids","Songs","Archives","Apps", "Dev"]
+fold_names=["Images","Docs","Videos","Audio","Archives","Apps", "Dev"]
 app_ext_list = ["exe", "msi", "lnk"]
 img_ext_list = ["png", "bmp", "jpg", "jpeg", "gif", "mdc", "tiff", "webp", "webm", "tif", "thumb", "jpe", "jfif", "ico", "heif", "heic"]
 vid_ext_list = ["mp4", "avi", "mkv", "mp4v", "mov", "m4v", "asf"]
 song_ext_list = ["mp3","flac","ogg","m3u","m3u8","m4a","tts","wav"]
 docs_ext_list = ["pdf", "odt", "doc", "txt", "gdoc", "xls", "xlxs", "pptx", "docx"]
-arch_ext_list = ["gz","rar","zip","7z", "jar", "iso"]
-dev_ext_list = ["py", "js", "json", "java",]
+arch_ext_list = ["gz", "rar", "zip", "7z", "jar", "iso"]
+dev_ext_list = ["py", "js", "json", "java", "lua", "ini", "sk"]
 
 os.chdir(DL_PATH)
 os.makedirs(fold_names[0], 511, True)
