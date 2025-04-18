@@ -70,13 +70,13 @@ if not os.path.exists(DL_PATH):
     sys.exit(1)
 
 fold_names=["Images","Docs","Videos","Audio","Archives","Apps", "Dev"]
-app_ext_list = ["exe", "msi", "lnk"]
-img_ext_list = ["png", "bmp", "jpg", "jpeg", "gif", "mdc", "tiff", "webp", "webm", "tif", "thumb", "jpe", "jfif", "ico", "heif", "heic"]
-vid_ext_list = ["mp4", "avi", "mkv", "mp4v", "mov", "m4v", "asf"]
-song_ext_list = ["mp3","flac","ogg","m3u","m3u8","m4a","tts","wav"]
-docs_ext_list = ["pdf", "odt", "doc", "txt", "gdoc", "xls", "xlxs", "pptx", "docx"]
-arch_ext_list = ["gz", "rar", "zip", "7z", "jar", "iso"]
-dev_ext_list = ["py", "js", "json", "java", "lua", "ini", "sk"]
+app_ext_list = ["exe", "msi", "lnk", "bat", "cmd", "com", "scr", "pif", "cpl", "msp", "reg", "dll", "sys", "drv", "ocx", "vxd", "cpl", "msc", "mspx"]
+img_ext_list = ["png", "bmp", "jpg", "jpeg", "gif", "mdc", "tiff", "webp", "webm", "tif", "thumb", "jpe", "jfif", "ico", "heif", "heic", "svg", "raw", "indd", "ai", "eps", "pdf"]
+vid_ext_list = ["mp4", "avi", "mkv", "mp4v", "mov", "m4v", "asf", "wmv", "flv", "webm", "3gp", "3g2", "m2ts", "mts", "ts", "vob", "ogv"]
+song_ext_list = ["mp3","flac","ogg","m3u","m3u8","m4a","tts","wav", "wma","aac","opus","aiff","aif","au","snd","cda"]
+docs_ext_list = ["pdf", "odt", "doc", "txt", "gdoc", "xls", "xlxs", "pptx", "docx", "dotx", "dotm", "dot", "docm", "dotx", "dotm", "rtf", "wps", "wpd", "wps", "wpd"]
+arch_ext_list = ["gz", "rar", "zip", "7z", "jar", "iso", "tar", "tar.gz", "tar.bz2", "tar.xz", "tar.lz", "tar.lzo", "tar.zst", "tar.lz4"]
+dev_ext_list = ["py", "js", "json", "java", "lua", "ini", "sk", "jar", "cpp", "c", "h", "hpp", "cs", "html", "css", "php", "sql", "xml", "yaml", "yml"]
 
 os.chdir(DL_PATH)
 os.makedirs(fold_names[0], 511, True)
@@ -136,8 +136,13 @@ for elem in found_list:
             print(f"{col.Fore.RED}[~] File {col.Fore.MAGENTA}{elem} not moved.{col.Style.RESET_ALL}")
             log_file.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - File {elem} not moved.\n")
     except Exception as e:
-        print(f"{col.Fore.WHITE}{col.Back.RED}[!] An error as Occured with file {col.Fore.MAGENTA}{elem} : {e}{col.Style.RESET_ALL}")
-        log_file.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - An error as Occured with file {elem} : {e}\n")
+        if os.path.exists(DL_PATH+elem):
+            shutil.move(DL_PATH+elem,DL_PATH+"SubFolders/")
+            print(f"{col.Fore.RED}[!] An error as Occured with file {col.Fore.MAGENTA}{elem} : {e}{col.Style.RESET_ALL}")
+            log_file.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - An error as Occured with file {elem} : {e}\n")
+        else:
+            print(f"{col.Fore.WHITE}{col.Back.RED}[!] An error as Occured with file {col.Fore.MAGENTA}{elem} : {e}{col.Style.RESET_ALL}")
+            log_file.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - An error as Occured with file {elem} : {e}\n")
 print(f"{col.Fore.GREEN}[O] Done ! :){col.Style.RESET_ALL}")
 log_file.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Done ! :)\n")
 log_file.close()
