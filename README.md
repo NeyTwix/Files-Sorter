@@ -19,6 +19,8 @@ Clonez le dépôt :
 git clone https://github.com/NeyTwix/Files-Sorter.git
 ```
 
+Ou téléchargez directement l'exécutable depuis la section [Releases](https://github.com/NeyTwix/Files-Sorter/releases).
+
 ## Utilisation 🚀
 
 Exécutez le script principal :
@@ -26,6 +28,8 @@ Exécutez le script principal :
 ```sh
 python sorter.py
 ```
+
+Ou lancez l'exécutable téléchargé.
 
 ## Contribuer 🤝
 
